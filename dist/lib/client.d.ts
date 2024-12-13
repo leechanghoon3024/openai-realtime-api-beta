@@ -219,6 +219,11 @@ export class RealtimeClient extends RealtimeEventHandler {
      */
     reset(): true;
     /**
+     * Clears the input audio buffer.
+     * Logs the previous buffer size if in debug mode.
+     */
+    clearAudioBuffer(): void;
+    /**
      * Connects to the Realtime WebSocket API
      * Updates session config and conversation config
      * @returns {Promise<true>}
@@ -336,8 +341,7 @@ export type SessionResourceType = {
     model?: string;
     modalities?: string[];
     instructions?: string;
-    voice?: "alloy"|"ash"|"ballad"|"coral"|"echo"|"sage"|"shimmer"|"verse";
-
+    voice?: "alloy" | "ash" | "ballad" | "coral" | "echo" | "sage" | "shimmer" | "verse";
     input_audio_format?: AudioFormatType;
     output_audio_format?: AudioFormatType;
     input_audio_transcription?: AudioTranscriptionType | null;
